@@ -1,5 +1,5 @@
 const Costumer = require('../app/models/costumer');
-const repository = require("../repositories/product-repository");
+const repository = require("../repositories/costumer-repository");
 
 exports.post = async (req,res) => {
     try{
@@ -45,7 +45,7 @@ exports.put = async (req, res)=>{
         const id = req.params.costumerId;
         const data = await repository.put(id, req.body)
         res.status(200).send({
-            message:"Produto atualizado",
+            message:"Cliente atualizado",
             dados: data
         })
     }catch(error){
@@ -66,7 +66,7 @@ exports.delete = async(req,res)=>{
 
     }catch(error){
         res.status(500).send({
-        message:"Produto não deletado",
+        message:"Cliente não deletado",
         erro:error 
         });  
     }
