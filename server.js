@@ -13,7 +13,10 @@ mongoose.connect(connectionString, {useNewUrlParser:true, useUnifiedTopology: tr
 
 const router = express.Router();
 
-const productRoute = require('./routes/product-route');
+const productRoute = require('./src/routes/product-route');
+const clientRoute = require('./src/routes/client-route');
+const invoiceRoute = require('./src/routes/invoice-route');
+const costumerRoute = require('./src/routes/costumer-route');
 
 router.use(function(req,res,next){
     console.log("Interceptação pelo Middleware ok");
@@ -26,6 +29,9 @@ router.get('/', (req, res)=> res.send("Rota teste ok"));
 app.use('/api', router);
 
 app.use('/api/produtos/', productRoute);
+app.use('/api/clientes/', clientRoute);
+app.use('/api/notas_fiscais/', invoiceRoute);
+app.use('/api/costumers/', costumerRoute);
 
 app.listen(port, ()=>{
     console.log("Server up !!!", port)

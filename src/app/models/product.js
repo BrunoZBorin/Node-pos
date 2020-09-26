@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
     nome: String,
     preco: Number,
-    descricao: String
+    descricao: String,
 });
 
 module.exports = mongoose.model("produto", productSchema);
